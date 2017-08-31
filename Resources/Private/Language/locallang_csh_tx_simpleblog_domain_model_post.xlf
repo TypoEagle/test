@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-08-19T12:27:36Z" product-name="simpleblog">
+		<header/>
+		<body>
+			<trans-unit id="tx_simpleblog_domain_model_bloglisting">
+				<source>Simpleblog - Bloglisting</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleblog_domain_model_bloglisting.description">
+				<source>This is the didactical example from the book \"Extbase  Fluid\" by Patciker Lobacher</source>
+			</trans-unit>
+			<trans-unit id="title.description">
+				<source>Title of a blogpost</source>
+			</trans-unit>
+			<trans-unit id="content.description">
+				<source>Text of a blogpost</source>
+			</trans-unit>
+			<trans-unit id="postdate.description">
+				<source>Date of the blogpost</source>
+			</trans-unit>
+			<trans-unit id="mp3.description">
+				<source>mp3 Ressource of a blogpost</source>
+			</trans-unit>
+			<trans-unit id="comments.description">
+				<source>Post comments relation: One post has many comments</source>
+			</trans-unit>
+			<trans-unit id="author.description">
+				<source>Post author relation: one post has one author. </source>
+			</trans-unit>
+			<trans-unit id="tags.description">
+				<source>Post tags relation: Many posts has many tags</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

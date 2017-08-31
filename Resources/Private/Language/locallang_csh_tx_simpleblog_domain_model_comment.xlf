@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-08-19T12:27:36Z" product-name="simpleblog">
+		<header/>
+		<body>
+			<trans-unit id="tx_simpleblog_domain_model_bloglisting">
+				<source>Simpleblog - Bloglisting</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleblog_domain_model_bloglisting.description">
+				<source>This is the didactical example from the book \"Extbase  Fluid\" by Patciker Lobacher</source>
+			</trans-unit>
+			<trans-unit id="comment.description">
+				<source>Comment text</source>
+			</trans-unit>
+			<trans-unit id="commentdate.description">
+				<source>Date of a comment</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

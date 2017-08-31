@@ -1,0 +1,21 @@
+{namespace pw = Typovision\Simpleblog\ViewHelpers}
+<h1>{headline}</h1>
+
+<f:render partial="Error" arguments="{object:'blog'}" />
+
+<f:form action="{action}" object="{blog}" name="blog" additionalAttributes="{role:'form'}">
+
+    <div class="form-group">
+        <label{f:if(condition:validationResults.flattenedErrors.title,then:' class="text-danger"') -> f:form.validationResults(for: 'blog', as: 'validationResults')}>Blog title</label>
+        <f:render partial="ErrorMessage" arguments="{property:'title',message:'Title-ERROR'}" />
+        <f:form.textfield property="title" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label{pw:hasError(property:'description',then:' class="text-danger"')}>Blog description</label>
+        <f:form.textarea property="description" class="form-control" />
+    </div>
+
+    <f:form.submit value="{submitmessage}" class="btn btn-primary" />
+
+</f:form>

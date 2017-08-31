@@ -1,0 +1,17 @@
+<div class="container" xmlns:f="http://www.w3.org/1999/html">
+
+    <f:layout name="Default" />
+
+    <f:section name="content">
+        <h1>Delete Blog?</h1>
+
+        <f:debug>{_all}</f:debug>
+
+        Would you really like to delete the Blog with the title <strong>{blog.title}</strong>?
+
+        <br /><br />
+
+        <f:link.action action="list" class="btn btn-danger">No, don't delete!</f:link.action>
+        <f:link.action action="delete" class="btn btn-success" arguments="{blog:blog}">Yes, sure, delete it!</f:link.action>
+    </f:section>
+</div>
