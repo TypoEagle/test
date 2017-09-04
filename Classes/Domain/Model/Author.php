@@ -21,7 +21,6 @@ class Author extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Name of an author
      *
      * @var string
-     * @validate NotEmpty
      */
     protected $fullname = '';
 
@@ -29,7 +28,6 @@ class Author extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Email of the author
      *
      * @var string
-     * @validate NotEmpty
      */
     protected $email = '';
 

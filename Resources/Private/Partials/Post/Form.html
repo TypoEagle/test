@@ -15,6 +15,19 @@
         <f:form.textarea property="content" class="form-control" />
     </div>
 
+    <div class="form-group">
+        <label>Post tags</label>
+        <f:form.select options="{tags}" optionLabelField="tagvalue" property="tags" size="5" multiple="1" class="form-control" />
+    </div>
+
+
+    <f:comment><!-- example for a select box -->
+        <div class="form-group">
+            <label>Post author</label>
+            <f:form.select options="{authors}" optionLabelField="fullname" prependOptionLabel="Choose author" prependOptionValue="0" property="author" class="form-control" />
+        </div>
+    </f:comment>
+
     <f:form.submit value="{submitmessage}" class="btn btn-primary" />
 
 </f:form>

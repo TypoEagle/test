@@ -21,6 +21,9 @@
 			<trans-unit id="mp3.description">
 				<source>mp3 Ressource of a blogpost</source>
 			</trans-unit>
+			<trans-unit id="images.description">
+				<source>Image Ressource of a blogpost</source>
+			</trans-unit>
 			<trans-unit id="comments.description">
 				<source>Post comments relation: One post has many comments</source>
 			</trans-unit>

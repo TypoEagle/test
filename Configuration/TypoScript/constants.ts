@@ -10,6 +10,6 @@ plugin.tx_simpleblog_bloglisting {
   }
   persistence {
     # cat=plugin.tx_simpleblog_bloglisting//a; type=string; label=Default storage PID
-    storagePid = 2
+    storagePid = 0,3,4,5,6,8
   }
 }

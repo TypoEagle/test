@@ -1,10 +1,15 @@
 <div class="container" xmlns:f="http://www.w3.org/1999/html">
+    {namespace simpleblog = Typovision\Simpleblog\ViewHelpers}
+
     <f:comment><f:debug>{_all}</f:debug></f:comment>
 
     <f:layout name="Default" />
 
     <f:section name="content">
         <h1>Listing for Blog</h1>
+
+        <simpleblog:dummyText length="4" /> <br />
+        <simpleblog:helloWorld length="10">Dummy Text</simpleblog:helloWorld> <br />
 
 
         <f:form action="list" additionalAttributes="{role:'form'}">

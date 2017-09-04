@@ -17,5 +17,24 @@ namespace Typovision\Simpleblog\Domain\Repository;
  */
 class PostRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-    
+    /**
+     * Debugs a SQL query from a QueryResult
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult
+     * @param boolean $explainOutput
+     * @return void
+     */
+    public function debugQuery(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult, $explainOutput = FALSE){
+        $GLOBALS['TYPO3_DB']->debugOutput = 2;
+        if($explainOutput){
+            $GLOBALS['TYPO3_DB']->explainOutput = true;
+        }
+        $GLOBALS['TYPO3_DB']->store_lastBuiltQuery = true;
+        $queryResult->toArray();
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($GLOBALS['TYPO3_DB']->debug_lastBuiltQuery);
+
+        $GLOBALS['TYPO3_DB']->store_lastBuiltQuery = false;
+        $GLOBALS['TYPO3_DB']->explainOutput = false;
+        $GLOBALS['TYPO3_DB']->debugOutput = false;
+    }
 }

@@ -1,4 +1,3 @@
-
 plugin.tx_simpleblog_bloglisting {
   view {
     templateRootPaths.0 = EXT:simpleblog/Resources/Private/Templates/
@@ -8,29 +7,41 @@ plugin.tx_simpleblog_bloglisting {
     layoutRootPaths.0 = EXT:simpleblog/Resources/Private/Layouts/
     layoutRootPaths.1 = {$plugin.tx_simpleblog_bloglisting.view.layoutRootPath}
   }
+    settings {
+      loginpage = 9
+      blog {
+          max = 10
+      }
+    }
   persistence {
-    storagePid = {$plugin.tx_simpleblog_bloglisting.persistence.storagePid}
-    recursive = 1
-    classes {
-        Typovision\Simpleblog\Domain\Model\Blog {
-            newRecordStoragePid = 3
+		storagePid = 0,3,4,5,6,8
+		#storagePid = 2
+		#recursive = 1
+		updateReferenceIndex = 1
+		classes {
+			Typovision\Simpleblog\Domain\Model\Blog {
+				newRecordStoragePid = 3
+			}
+			Typovision\Simpleblog\Domain\Model\Post {
+				newRecordStoragePid = 4
+			}
+			Typovision\Simpleblog\Domain\Model\Comment {
+				newRecordStoragePid = 5
+			}
+			Typovision\Simpleblog\Domain\Model\Tag {
+				newRecordStoragePid = 6
+			}
+			Typovision\Simpleblog\Domain\Model\Author {
+				mapping {
+					tableName = fe_users
+					columns {
+						name.mapOnProperty = fullname
+					}
+				}
+			}
         }
-        Typovision\Simpleblog\Domain\Model\Post {
-            newRecordStoragePid = 4
-        }
-        Typovision\Simpleblog\Domain\Model\Comment {
-            newRecordStoragePid = 5
-        }
-        Typovision\Simpleblog\Domain\Model\Tag {
-            newRecordStoragePid = 6
-        }
-    }
   }
-  settings {
-    blog {
-        max = 10
-    }
-  }
+
   features {
     #skipDefaultArguments = 1
   }
@@ -83,3 +94,26 @@ page {
 		bootstrap = EXT:simpleblog/Resources/Public/Bootstrap/js/bootstrap.min.js
 	}
 }
+
+ajax = PAGE
+ajax {
+	typeNum = 99
+	config {
+		disableAllHeaderCode = 1
+		additionalHeaders = Content-type:application/json
+		admPanel = 0
+		debug = 0
+	}
+	10 < tt_content.list.20.simpleblog_bloglisting
+}
+
+
+plugin.tx_simpleblog_bloglisting {
+	_LOCAL_LANG {
+		de {
+			blog.list.headline = List aller Blogs
+		}
+	}
+}
+
+module.tx_simpleblog_bloglisting < plugin.tx_simpleblog_bloglisting

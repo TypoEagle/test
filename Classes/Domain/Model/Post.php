@@ -49,6 +49,14 @@ class Post extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $mp3 = null;
 
     /**
+     * Images
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @lazy
+     */
+    protected $images;
+
+    /**
      * Post comments relation: One post has many comments
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Typovision\Simpleblog\Domain\Model\Comment>
@@ -113,6 +121,26 @@ class Post extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->mp3 = $mp3;
     }
 
+
+    /**
+     * Images Setter
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $images
+     * @return void
+     */
+    public function setImages($images)
+    {
+        $this->images = $images;
+    }
+    /**
+     * Images Getter
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+
     /**
      * Returns the postdate
      *
@@ -141,7 +169,7 @@ class Post extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         //Do not remove the next line: It would break the functionality
         $this->initStorageObjects();
-
+        $this->images = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->setPostdate(new \DateTime());
     }
 
@@ -226,7 +254,7 @@ class Post extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the author
      *
-     * @return \Typovision\Simpleblog\Domain\Model\Author author
+     * @return \Typovision\Simpleblog\Domain\Model\Author $author
      */
     public function getAuthor()
     {

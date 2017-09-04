@@ -54,6 +54,7 @@ CREATE TABLE tx_simpleblog_domain_model_post (
 	content text NOT NULL,
 	postdate int(11) DEFAULT '0' NOT NULL,
 	mp3 int(11) unsigned NOT NULL default '0',
+	images int(11) unsigned NOT NULL default '0',
 	comments int(11) unsigned DEFAULT '0' NOT NULL,
 	author int(11) unsigned DEFAULT '0',
 	tags int(11) unsigned DEFAULT '0' NOT NULL,

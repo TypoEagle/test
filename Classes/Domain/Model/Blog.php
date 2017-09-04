@@ -18,37 +18,37 @@ namespace Typovision\Simpleblog\Domain\Model;
 class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
-     * Title of blog
+     * title
      *
      * @var string
-     * @validate NotEmpty, Typovision.Simpleblog:Word(max=20)
+     * @validate NotEmpty, Typovision.Simpleblog:Word(max=30)
      */
     protected $title = '';
-
     /**
-     * Description of blog
+     * description
      *
      * @var string
      */
     protected $description = '';
-
     /**
      * Picture of the blog
      *
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     * @cascade remove
      */
     protected $image = null;
-
     /**
-     * Blog posts relation: One blog has many posts.
+     * Blog posts
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Typovision\Simpleblog\Domain\Model\Post>
      * @cascade remove
      * @lazy
      */
     protected $posts = null;
-
+    /**
+     * crdate
+     * @var DateTime
+     */
+    protected $crdate;
     /**
      * Returns the title
      *
@@ -58,7 +58,6 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->title;
     }
-
     /**
      * Sets the title
      *
@@ -69,7 +68,6 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->title = $title;
     }
-
     /**
      * Returns the description
      *
@@ -79,7 +77,6 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->description;
     }
-
     /**
      * Sets the description
      *
@@ -90,7 +87,6 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->description = $description;
     }
-
     /**
      * Returns the image
      *
@@ -100,7 +96,6 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->image;
     }
-
     /**
      * Sets the image
      *
@@ -111,7 +106,6 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->image = $image;
     }
-
     /**
      * __construct
      */
@@ -120,7 +114,6 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         //Do not remove the next line: It would break the functionality
         $this->initStorageObjects();
     }
-
     /**
      * Initializes all ObjectStorage properties
      * Do not modify this method!
@@ -133,7 +126,6 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->posts = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
-
     /**
      * Adds a Post
      *
@@ -144,7 +136,6 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->posts->attach($post);
     }
-
     /**
      * Removes a Post
      *
@@ -155,17 +146,15 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->posts->detach($postToRemove);
     }
-
     /**
      * Returns the posts
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Typovision\Simpleblog\Domain\Model\Post> posts
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Typovision\Simpleblog\Domain\Model\Post> $posts
      */
     public function getPosts()
     {
         return $this->posts;
     }
-
     /**
      * Sets the posts
      *
@@ -175,5 +164,18 @@ class Blog extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setPosts(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $posts)
     {
         $this->posts = $posts;
+    }
+    /**
+     * @param \DateTime $crdate
+     * @return void
+     */
+    public function setCrdate(\DateTime $crdate) {
+        $this->crdate = $crdate;
+    }
+    /**
+     * @return \DateTime
+     */
+    public function getCrdate() {
+        return $this->crdate;
     }
 }
